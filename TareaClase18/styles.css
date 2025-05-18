@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    height: 100vh;
+    width: 100vw;
+}
+
+body div {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.div1 {
+    background-image: url('golem.JPG');
+}
+.div1 img {
+    width: 10%;
+    height: auto;
+}
+
+.div2 {
+    background-image: url('fondo2.png');
+}
+.div2 img {
+    width: 15%;
+    height: auto;
+}
+
+.div3 {
+    background-image: url('fondo4.png');
+}
+/* .div3 img {
+    width: 10%;
+    height: auto;
+} */
+
+.div4 {
+    background-image: url('fondo3.jpg');
+}
+.div4 img {
+    width: 10%;
+    height: auto;
+}
+
+.custom-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.custom-button:hover {
+    background: linear-gradient(45deg, #2575fc, #6a11cb);
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.custom-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+

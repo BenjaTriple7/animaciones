@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuatro Imágenes</title>
+    <link rel="stylesheet" href="styles.css">
+    <script
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous"></script>
+    <style>
+        .contmover img {
+            width: 200px;
+            height: 200px;
+            cursor: pointer;
+            position: relative;
+        }
+        #box {
+            width: 130px;
+            height: auto;
+            text-align: center;
+            line-height: 100px;
+            opacity: 1;
+            transition: opacity 1s ease-out;
+        }
+        #box2 {
+            width: 110px;
+            height: auto;
+            text-align: center;
+            line-height: 100px;
+        }
+        
+        /* animacion de explotar */
+        .image-container {
+            position: relative;
+            width: 100px;
+            height: auto;
+            cursor: pointer;
+        }
+        .image-container img {
+            width: 100%;
+            transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+        }
+        .explosion {
+            transform: scale(2);
+            opacity: 0;
+        }
+        .image2{
+            display: none;
+        }
+        #video-container {
+            display: none;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="div1">
+        <div class="contmover">
+            <img id="moverseimg" src="Calabaza.png" alt="">
+            <button onclick="moverse()" class="custom-button">Moverse</button>
+        </div>
+        
+    </div>
+    <div class="div2">
+        <img id="box" src="Steve_(Minecraft).png" alt="">
+        <button onclick="toggleVisibility()" class="custom-button">Apa y des</button>
+
+    </div>
+    
+    <div class="div3">
+        <div class="image-container" onclick="explodeImage()">
+            <img id="image" src="diamante.png" alt="Imagen">
+            <button class="custom-button">Explotar</button>
+        </div>
+    </div>
+
+
+    <div class="div4">
+        <button onclick="showAndPlayVideo()" class="custom-button">Mostrar</button>
+        <div id="video-container">
+        <video id="video" controls>
+            <source src="java.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+        </video>
+    </div>
+    </div>
+
+
+
+    <script>
+
+        $(document).ready(function(){
+            $(".custom-button").eq(0).click(function(){ // el eq(0) selecciona solo el primer elemento (índice 0) de ese conjunto.
+            $("#moverseimg").animate({
+                left: "+=100px"
+            }, 500);
+            });
+        });
+
+        function toggleVisibility() {
+            const img = document.getElementById('box');
+            if (img.style.display === "none" || img.style.opacity === "0") {
+                img.style.display = "block";
+                setTimeout(() => {
+                    img.style.opacity = "1";
+                }, 10); 
+            } else {
+                img.style.opacity = "0";
+                setTimeout(() => {
+                    img.style.display = "none";
+                }, 1000); 
+            }
+        }
+
+        function explodeImage() {
+            const img = document.getElementById('image');
+            img.classList.add('explosion');
+            
+            // Crear y reproducir el audio
+            const audio = new Audio('efecto.mp3'); // Cambia el nombre si tu archivo es diferente
+            audio.play();
+
+            setTimeout(() => {
+            img.style.display = 'none';
+            }, 500);
+        }
+
+        function showAndPlayVideo() {
+            $("#video-container").show();
+            $("#video")[0].play();
+            alert("I'm Steve");
+        }
+
+
+
+    </script>
+    
+
+</body>
+</html>
